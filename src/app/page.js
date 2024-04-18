@@ -1,10 +1,22 @@
+"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
-
+import { useState } from "react";
 export default function Home() {
+  const [counter, setCounter] = useState(0);
+
+  const incrementCounter = () => {
+    setCounter(counter + 1);
+  };
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
+        <h1 data-testid="counter-display">{counter}</h1>
+        <button
+          onClick={incrementCounter}
+          data-testid="counter-increment-button"
+        ></button>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.js</code>
